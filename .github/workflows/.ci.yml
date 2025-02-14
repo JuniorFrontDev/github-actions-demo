@@ -16,11 +16,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18"
+          cache: "pnpm"
+      - name: Instalar pnpm
+        run: npm install -g pnpm
+
       - name: Instalar dependencias
-        run: npm install
+        run: pnpm install
 
       - name: Ejecutar pruebas
-        run: npm test
+        run: pnpm test
 
       - name: Despliegue a github pages
         if: github.ref == 'refs/heads/main'
