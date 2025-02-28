@@ -1,0 +1,35 @@
+name: CI/CD Demo
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  format-and-lint:
+    uses: ./.github/workflws/lint-format.yml
+
+  test:
+    name: Run tests
+    needs: format-and-lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Ejecutar pruebas
+        run: npm test
+
+      - name: Despliegue a github pages
+        if: github.ref == 'refs/heads/main'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: .
+          token: ${{ secrets.GITHUB_TOKEN }}

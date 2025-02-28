@@ -1,0 +1,19 @@
+{
+  "name": "github-actions-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "format": "prettier --check",
+    "lint": "eslint -- . --ext .js,.ts,.tsx --max-warnings=0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^9.21.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.5.2"
+  }
+}
