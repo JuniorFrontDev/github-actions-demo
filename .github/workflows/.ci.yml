@@ -5,8 +5,14 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+
 jobs:
+  format-and-lint:
+    uses: ./.github/workflows/.formatting.yml
+
   test:
+    name: Run tests
+    needs: format-and-lint
     runs-on: ubuntu-latest
     steps:
       - name: Clonar repositorio
@@ -18,7 +24,7 @@ jobs:
           node-version: "18"
 
       - name: Instalar dependencias
-        run: npm install
+        run: npm i
 
       - name: Ejecutar pruebas
         run: npm test
