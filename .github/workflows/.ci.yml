@@ -8,7 +8,7 @@ on:
 
 jobs:
   format-and-lint:
-    uses: ./.github/workflows/lint-format.yml
+    uses: ./.github/workflows/.formatting.yml
 
   test:
     name: Run tests
