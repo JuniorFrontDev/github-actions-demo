@@ -29,6 +29,13 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+           # Obtener la rama en la que se está ejecutando el workflow
+          BRANCH_NAME=$(git symbolic-ref --short HEAD || echo $GITHUB_REF_NAME)
+
+          # Asegurarse de estar en la rama correcta
+          git checkout $BRANCH_NAME
+
           git add .
           git commit -m "✨ Apply Prettier formatting"
           git push
