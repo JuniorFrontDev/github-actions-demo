@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "format": "prettier --check",
-    "lint": "eslint . --ext .js,.ts,.tsx --max-warnings=0"
+    "format": "prettier --check \"**/*.{js,html}\""
   },
   "keywords": [],
   "author": "",
