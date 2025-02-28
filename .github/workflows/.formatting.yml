@@ -17,7 +17,7 @@ jobs:
           node-version: "18"
 
       - name: Instalar dependencias
-        run: npm ci
+        run: npm i
 
       - name: Run Prettier
         run: npm run format
