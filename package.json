@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "format": "prettier --check",
-    "lint": "eslint -- . --ext .js,.ts,.tsx --max-warnings=0"
+    "lint": "eslint . --ext .js,.ts,.tsx --max-warnings=0"
   },
   "keywords": [],
   "author": "",
